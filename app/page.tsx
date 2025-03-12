@@ -18,7 +18,7 @@ export default function Home() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <GameController className="h-8 w-8 text-purple-500" />
+            <img width={80} height={80} src="/playpal.png"></img>
             <span className="text-2xl font-bold text-white">PlayPal</span>
           </div>
           <div className="space-x-4">

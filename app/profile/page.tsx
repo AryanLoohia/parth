@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { TowerControl as GameController, Youtube, Stamp as Steam, ArrowLeft, Film, Trophy, Globe2 } from "lucide-react";
+// import { TowerControl as GameController, Youtube, Stamp as Steam, ArrowLeft, Film, Trophy, Globe2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -15,19 +15,26 @@ export default function Profile() {
     transition: { duration: 0.6 }
   };
 
+  // Sample image URLs for the content cards
+  const contentImages = [
+    "/1.avif",
+    "/3.avif",
+    "/3.avif"
+  ];
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900">
       {/* Navigation */}
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <GameController className="h-8 w-8 text-purple-500" />
+            {/* <GameController className="h-8 w-8 text-purple-500" /> */}
             <span className="text-2xl font-bold text-white">PlayPal</span>
           </div>
           <div className="space-x-4">
             <Link href="/">
               <Button variant="ghost" className="text-white hover:text-purple-400">
-                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+                 Back to Home
               </Button>
             </Link>
           </div>
@@ -49,13 +56,13 @@ export default function Profile() {
                 whileHover={{ scale: 1.05 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2360&q=80"
+                  src="/src.avif"
                   alt="Profile"
                   fill
                   className="rounded-full object-cover"
                 />
                 <div className="absolute bottom-0 right-0 bg-purple-500 p-2 rounded-full">
-                  <Trophy className="h-6 w-6 text-white" />
+                  {/* <Trophy className="h-6 w-6 text-white" /> */}
                 </div>
               </motion.div>
 
@@ -64,7 +71,7 @@ export default function Profile() {
                 <div className="flex items-center gap-4 mb-4">
                   <h1 className="text-3xl font-bold text-white">Pro Gamer</h1>
                   <div className="flex items-center text-gray-400">
-                    <Globe2 className="h-4 w-4 mr-1" />
+                    {/* <Globe 2 className="h-4 w-4 mr-1" /> */}
                     <span>United States</span>
                   </div>
                   <div className="text-purple-500 font-semibold">
@@ -79,8 +86,8 @@ export default function Profile() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <div className="flex items-center justify-center gap-2 mb-2">
-                      <Youtube className="h-6 w-6 text-red-500" />
-                      <Image src="https://www.youtube.com/favicon.ico" alt="YouTube" width={24} height={24} />
+                      {/* <Youtube className="h-6 w-6 text-red-500" /> */}
+                      <Image src="/youtube.png" alt="YouTube" width={50} height={50} />
                     </div>
                     <p className="text-xl font-bold text-white">1.2M</p>
                     <p className="text-gray-400">Subscribers</p>
@@ -90,8 +97,8 @@ export default function Profile() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <div className="flex items-center justify-center gap-2 mb-2">
-                      <Steam className="h-6 w-6 text-blue-500" />
-                      <Image src="https://store.steampowered.com/favicon.ico" alt="Steam" width={24} height={24} />
+                      {/* <Steam className="h-6 w-6 text-blue-500" /> */}
+                      <Image src="/clock.jpeg" alt="Steam" width={50} height={50} />
                     </div>
                     <p className="text-xl font-bold text-white">2.5K</p>
                     <p className="text-gray-400">Hours Played</p>
@@ -100,7 +107,10 @@ export default function Profile() {
                     className="bg-gray-700 p-4 rounded-lg text-center"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Film className="h-6 w-6 text-purple-500 mx-auto mb-2" />
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                    <Image src="/insta.jpeg" alt="Steam" width={50} height={50} />
+                    </div>
+                   
                     <p className="text-xl font-bold text-white">150+</p>
                     <p className="text-gray-400">Reels</p>
                   </motion.div>
@@ -152,7 +162,7 @@ export default function Profile() {
         >
           <h2 className="text-2xl font-bold text-white mt-12 mb-6">Recent Content</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
+            {[0, 1, 2].map((i) => (
               <motion.div
                 key={i}
                 whileHover={{ scale: 1.05 }}
@@ -161,14 +171,14 @@ export default function Profile() {
                 <Card className="bg-gray-800 overflow-hidden">
                   <div className="relative h-48">
                     <Image
-                      src={`https://images.unsplash.com/photo-156657773911${i}-5180d4bf9390?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`}
-                      alt={`Content ${i}`}
+                      src={contentImages[i]}
+                      alt={`Content ${i+1}`}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-white font-bold mb-2">Epic Gaming Moment #{i}</h3>
+                    <h3 className="text-white font-bold mb-2">Epic Gaming Moment #{i+1}</h3>
                     <p className="text-gray-400 text-sm">1.2K views • 2 days ago</p>
                   </div>
                 </Card>
